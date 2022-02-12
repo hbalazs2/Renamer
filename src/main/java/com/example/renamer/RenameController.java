@@ -45,24 +45,21 @@ public class RenameController {
 //   If you want to set the buttons inside the code
 //        setButtonBar(this.buttonBar);
 //        System.out.println(extensionPicker.getValue());
-
     }
 
     @FXML
     private void onRenameButtonClick() throws IOException {
-
         if (path.getText().isEmpty()) {
             System.out.println("Path: " + path.getText() + "|");
             displayLabel.setText("Path is empty, please enter valid path!");
-
-
-        }
-        else {
+            displayLabel.setText(displayLabel.getText().toUpperCase());
+            displayLabel.setTextFill(Color.web("Red"));
+        } else {
             Rename rename = new Rename(path.getText(), extensionPicker.getValue());
             List<File> filesRenamed = rename.renameFiles();
+            displayLabel.setTextFill(Color.web("Black"));
             displayLabel.setText(filesRenamed.size() + " file(s) renamed.");
         }
-
     }
 
     public void setExtensionPicker(ComboBox<String> extensionPicker) {
@@ -81,6 +78,7 @@ public class RenameController {
 //        ButtonBar.setButtonData(exitButton, ButtonBar.ButtonData.BACK_PREVIOUS);
 //    }
 
+    @FXML
     public void onSelectDirClick() {
         Stage directoryStage = new Stage();
         File selectedDirectory = directoryChooser.showDialog(directoryStage);
@@ -89,6 +87,7 @@ public class RenameController {
         }
     }
 
+    @FXML
     public void onExitButtonClick(){
         // get a handle to the stage
         Stage stage = (Stage) exitButton.getScene().getWindow();
