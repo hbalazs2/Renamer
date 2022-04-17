@@ -37,7 +37,7 @@ public class RenameController {
 
     public void initialize() {
         displayLabel.setText("Enter the path: ");
-        setExtensionPicker(extensionPicker);
+        setExtensionPicker();
         extensionPicker.setEditable(true);
         directoryChooser.setInitialDirectory(new File("src/main/java/com/example/renamer"));
         chooseDir.setText("Select Directory");
@@ -48,7 +48,7 @@ public class RenameController {
     }
 
     @FXML
-    private void onRenameButtonClick() throws IOException {
+    private void onRenameButtonClick() {
         if (path.getText().isEmpty()) {
             System.out.println("Path: " + path.getText() + "|");
             displayLabel.setText("Path is empty, please enter valid path!");
@@ -62,7 +62,7 @@ public class RenameController {
         }
     }
 
-    public void setExtensionPicker(ComboBox<String> extensionPicker) {
+    public void setExtensionPicker() {
         this.extensionPicker.setItems(FXCollections.observableArrayList(
                 ".txt",
                 ".pdf",

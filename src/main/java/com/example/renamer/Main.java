@@ -9,16 +9,14 @@ import java.io.IOException;
 
 public class Main extends Application {
 
-
     @Override
-    public void start(Stage primaryStage) throws IOException {
+    public void start(Stage primaryStage) {
         try {
-
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("start.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 400, 180);
-        primaryStage.setTitle("Rename files");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("home.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 400, 180);
+            primaryStage.setTitle("Rename or print");
+            primaryStage.setScene(scene);
+            primaryStage.show();
         } catch(Exception e)
         {
             e.printStackTrace();
