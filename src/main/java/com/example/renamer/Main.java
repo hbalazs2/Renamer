@@ -13,7 +13,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("home.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 400, 180);
+            Scene scene = new Scene(fxmlLoader.load(), 400, 100);
             primaryStage.setTitle("Rename or print");
             primaryStage.setScene(scene);
             primaryStage.show();

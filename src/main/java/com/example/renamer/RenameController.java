@@ -2,14 +2,14 @@ package com.example.renamer;
 
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.List;
 
 public class RenameController {
@@ -22,6 +22,12 @@ public class RenameController {
 
     @FXML
     private Label displayLabel = new Label();
+
+    @FXML
+    private Label extensionLabel = new Label();
+
+    @FXML
+    private Button backButton = new Button();
 
     @FXML
     private Button exitButton = new Button();
@@ -38,6 +44,7 @@ public class RenameController {
     public void initialize() {
         displayLabel.setText("Enter the path: ");
         setExtensionPicker();
+        extensionLabel.setText("Select extension");
         extensionPicker.setEditable(true);
         directoryChooser.setInitialDirectory(new File("src/main/java/com/example/renamer"));
         chooseDir.setText("Select Directory");
@@ -88,7 +95,22 @@ public class RenameController {
     }
 
     @FXML
-    public void onExitButtonClick(){
+    public void onBackButtonClick() {
+        Stage primaryStage = (Stage) backButton.getScene().getWindow();
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("home.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 400, 100);
+            primaryStage.setTitle("Rename or print");
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void onExitButtonClick() {
         // get a handle to the stage
         Stage stage = (Stage) exitButton.getScene().getWindow();
         // do what you have to do

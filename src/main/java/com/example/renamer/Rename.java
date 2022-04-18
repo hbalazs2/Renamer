@@ -27,7 +27,6 @@ public class Rename {
 
     public List<File> renameFiles() {
 
-//        String pathOfFolder = "C:\\Renametest";
         File myFolder = new File(getPath());
         List<File> filesToRename = Arrays.asList(myFolder.listFiles());
         String oldDelimiter = "_";

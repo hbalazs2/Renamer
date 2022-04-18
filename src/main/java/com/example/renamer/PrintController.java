@@ -1,6 +1,8 @@
 package com.example.renamer;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -27,12 +29,15 @@ public class PrintController {
     private Button printButton = new Button();
 
     @FXML
+    private Button backButton = new Button();
+
+    @FXML
     private Button exitButton = new Button();
 
     @FXML
-    FileChooser fileChooser = new FileChooser();
+    private FileChooser fileChooser = new FileChooser();
 
-    List<File> selectedFiles;
+    private List<File> selectedFiles;
 
     public void initialize() {
         displayLabel.setText("Enter the path: ");
@@ -75,7 +80,22 @@ public class PrintController {
     }
 
     @FXML
-    public void onExitButtonClick(){
+    public void onBackButtonClick() {
+        Stage primaryStage = (Stage) backButton.getScene().getWindow();
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("home.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 400, 100);
+            primaryStage.setTitle("Rename or print");
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void onExitButtonClick() {
         // get a handle to the stage
         Stage stage = (Stage) exitButton.getScene().getWindow();
         // do what you have to do

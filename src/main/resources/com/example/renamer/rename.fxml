@@ -8,6 +8,9 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ButtonBar?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.layout.HBox?>
 <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.example.renamer.RenameController" >
     <padding>
@@ -16,11 +19,15 @@
 
     <Label fx:id="displayLabel"/>
     <TextField fx:id="path" />
-    <ComboBox fx:id="extensionPicker" />
+    <HBox alignment="CENTER">
+        <Label fx:id="extensionLabel" prefWidth="100.0" prefHeight="20.0"/>
+        <ComboBox fx:id="extensionPicker" prefWidth="100.0"/>
+    </HBox>
     <ButtonBar>
         <buttons>
             <Button fx:id="chooseDir" text="Select Directory" onAction="#onSelectDirClick" ButtonBar.buttonData="LEFT" />
             <Button fx:id="renameButton" text="Rename" onAction="#onRenameButtonClick" ButtonBar.buttonData="SMALL_GAP" />
+            <Button fx:id="backButton" text="Back" onAction="#onBackButtonClick" ButtonBar.buttonData="SMALL_GAP" />
             <Button  fx:id="exitButton" text="Exit" onAction="#onExitButtonClick" ButtonBar.buttonData="CANCEL_CLOSE"/>
         </buttons>
     </ButtonBar>
