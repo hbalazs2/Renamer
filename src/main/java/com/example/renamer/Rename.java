@@ -42,8 +42,8 @@ public class Rename {
                 String[] fileNameParts = longFileName.split(oldDelimiter);
                 // building the new filename
                 String newFileName = fileNameParts[1] + newDelimiter + fileNameParts[0];
-                System.out.println(longFileName);
-                System.out.println(newFileName);
+                //System.out.println(longFileName);
+                //System.out.println(newFileName);
                 // renaming the file
                 file.renameTo(new File(getPath() + "\\" + newFileName + getExtension()));
             }
