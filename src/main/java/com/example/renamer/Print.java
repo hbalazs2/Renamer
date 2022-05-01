@@ -14,8 +14,8 @@ public class Print {
             if (file.isFile()) {
                 System.out.println(file.getAbsolutePath());
                 try {
-                    //desktop.print(file);
-                    System.out.println(file.getName());
+                    desktop.print(file);
+//                    System.out.println(file.getName());
                     counter++;
                 } catch (Exception e) {
                     e.printStackTrace();

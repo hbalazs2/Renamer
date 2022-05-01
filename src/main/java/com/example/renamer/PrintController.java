@@ -82,16 +82,8 @@ public class PrintController {
     @FXML
     public void onBackButtonClick() {
         Stage primaryStage = (Stage) backButton.getScene().getWindow();
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("home.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 400, 100);
-            primaryStage.setTitle("Rename or print");
-            primaryStage.setScene(scene);
-            primaryStage.show();
-        } catch(Exception e)
-        {
-            e.printStackTrace();
-        }
+        Main main = new Main();
+        main.start(primaryStage);
     }
 
     @FXML

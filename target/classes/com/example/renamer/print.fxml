@@ -20,6 +20,7 @@
         <buttons>
             <Button fx:id="chooseDirButton" text="Select Directory" onAction="#onSelectDirClick" ButtonBar.buttonData="LEFT" />
             <Button fx:id="printButton" text="Print" onAction="#onPrintButtonClick" ButtonBar.buttonData="SMALL_GAP" />
+            <Button fx:id="backButton" text="Back" onAction="#onBackButtonClick" ButtonBar.buttonData="SMALL_GAP" />
             <Button  fx:id="exitButton" text="Exit" onAction="#onExitButtonClick" ButtonBar.buttonData="CANCEL_CLOSE"/>
         </buttons>
     </ButtonBar>

@@ -46,7 +46,7 @@ public class RenameController {
         setExtensionPicker();
         extensionLabel.setText("Select extension");
         extensionPicker.setEditable(true);
-        directoryChooser.setInitialDirectory(new File("src/main/java/com/example/renamer"));
+        directoryChooser.setInitialDirectory(new File(System.getProperty("user.home")));
         chooseDir.setText("Select Directory");
 
 //   If you want to set the buttons inside the code
@@ -57,7 +57,6 @@ public class RenameController {
     @FXML
     private void onRenameButtonClick() {
         if (path.getText().isEmpty()) {
-            System.out.println("Path: " + path.getText() + "|");
             displayLabel.setText("Path is empty, please enter valid path!");
             displayLabel.setText(displayLabel.getText().toUpperCase());
             displayLabel.setTextFill(Color.web("Red"));
@@ -76,6 +75,7 @@ public class RenameController {
                 ".doc",
                 "(other)"
         ));
+        this.extensionPicker.setEditable(true);
     }
 
 //    - if you want to set the buttons inside the code
@@ -97,16 +97,8 @@ public class RenameController {
     @FXML
     public void onBackButtonClick() {
         Stage primaryStage = (Stage) backButton.getScene().getWindow();
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("home.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 400, 100);
-            primaryStage.setTitle("Rename or print");
-            primaryStage.setScene(scene);
-            primaryStage.show();
-        } catch(Exception e)
-        {
-            e.printStackTrace();
-        }
+        Main main = new Main();
+        main.start(primaryStage);
     }
 
     @FXML
