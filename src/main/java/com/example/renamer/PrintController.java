@@ -41,8 +41,8 @@ public class PrintController {
 
     public void initialize() {
         displayLabel.setText("Enter the path: ");
-        fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
         chooseDirButton.setText("Select files");
+
     }
 
     @FXML
@@ -63,11 +63,13 @@ public class PrintController {
 
     @FXML
     public void onSelectDirClick() {
+        if (fileChooser.getInitialDirectory() == null) {
+            fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
+        }
         Stage directoryStage = new Stage();
         this.selectedFiles = fileChooser.showOpenMultipleDialog(directoryStage);
-        //File selectedFile = fileChooser.showOpenDialog(directoryStage);
+
         if (this.selectedFiles != null) {
-            System.out.println(this.selectedFiles);
             if (this.selectedFiles.size() > 1) {
                 path.setText(this.selectedFiles.get(0).getAbsolutePath());
                 displayLabel.setText("You have selected multiple files.");
@@ -76,6 +78,8 @@ public class PrintController {
                 path.setText(this.selectedFiles.get(0).getAbsolutePath());
                 displayLabel.setText("You have selected one file.");
             }
+            System.out.println(selectedFiles.get(0).getParentFile());
+            fileChooser.setInitialDirectory(selectedFiles.get(0).getParentFile());
         }
     }
 

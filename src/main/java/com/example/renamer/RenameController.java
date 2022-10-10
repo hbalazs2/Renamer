@@ -46,9 +46,8 @@ public class RenameController {
         setExtensionPicker();
         extensionLabel.setText("Select extension");
         extensionPicker.setEditable(true);
-        directoryChooser.setInitialDirectory(new File(System.getProperty("user.home")));
         chooseDir.setText("Select Directory");
-
+        directoryChooser.setInitialDirectory(new File(System.getProperty("user.home")));
 //   If you want to set the buttons inside the code
 //        setButtonBar(this.buttonBar);
 //        System.out.println(extensionPicker.getValue());
@@ -70,12 +69,12 @@ public class RenameController {
 
     public void setExtensionPicker() {
         this.extensionPicker.setItems(FXCollections.observableArrayList(
-                ".txt",
                 ".pdf",
-                ".doc",
-                "(other)"
+                ".txt",
+                ".doc"
         ));
         this.extensionPicker.setEditable(true);
+        this.extensionPicker.getSelectionModel().selectFirst();
     }
 
 //    - if you want to set the buttons inside the code
@@ -87,11 +86,13 @@ public class RenameController {
 
     @FXML
     public void onSelectDirClick() {
+        System.out.println(directoryChooser.getInitialDirectory());
         Stage directoryStage = new Stage();
         File selectedDirectory = directoryChooser.showDialog(directoryStage);
         if (selectedDirectory != null) {
             path.setText(selectedDirectory.getAbsolutePath());
         }
+        this.directoryChooser.setInitialDirectory(selectedDirectory);
     }
 
     @FXML
