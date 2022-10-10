@@ -42,7 +42,6 @@ public class PrintController {
     public void initialize() {
         displayLabel.setText("Enter the path: ");
         chooseDirButton.setText("Select files");
-
     }
 
     @FXML
