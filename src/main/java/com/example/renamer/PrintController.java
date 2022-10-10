@@ -1,18 +1,12 @@
 package com.example.renamer;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.List;
 
 public class PrintController {
@@ -42,6 +36,8 @@ public class PrintController {
     public void initialize() {
         displayLabel.setText("Enter the path: ");
         chooseDirButton.setText("Select files");
+
+
     }
 
     @FXML
@@ -80,6 +76,7 @@ public class PrintController {
             System.out.println(selectedFiles.get(0).getParentFile());
             fileChooser.setInitialDirectory(selectedFiles.get(0).getParentFile());
         }
+
     }
 
     @FXML
