@@ -1,7 +1,9 @@
 package com.example.renamer;
 
 import java.io.File;
+import java.math.BigInteger;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class Rename {
@@ -29,23 +31,17 @@ public class Rename {
 
         File myFolder = new File(getPath());
         List<File> filesToRename = Arrays.asList(myFolder.listFiles());
-        String oldDelimiter = "_";
-        String newDelimiter = "-";
+        String oldDelimiter = "\\.";
 
         for (File file : filesToRename) {
             String localExtension = file.getName().substring(file.getName().length() - 4);
 
-            if (file.isFile() && file.getName().contains(oldDelimiter) && localExtension.equals(getExtension())) {
-                // getting the original(long) file name
+            if (file.isFile()) {
                 String longFileName = file.getName();
-                // splitting long file name to separated parts by underscores
                 String[] fileNameParts = longFileName.split(oldDelimiter);
-                // building the new filename
-                String newFileName = fileNameParts[1] + newDelimiter + fileNameParts[0];
-                //System.out.println(longFileName);
-                //System.out.println(newFileName);
-                // renaming the file
-                file.renameTo(new File(getPath() + "\\" + newFileName + getExtension()));
+                BigInteger num = new BigInteger(fileNameParts[0].toUpperCase(), 16);
+                String newFileName = num + localExtension;
+                file.renameTo(new File(getPath() + "\\" + newFileName));
             }
         }
         return filesToRename;
