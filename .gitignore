@@ -1,0 +1,6 @@
+bin/
+obj/
+*.class
+*.pdf
+*.txt
+*.bak
