@@ -1,6 +1,12 @@
-bin/
-obj/
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
 *.class
 *.pdf
 *.txt
 *.bak
+.idea
+*.iws
+*.iml
+*.ipr
