@@ -47,21 +47,9 @@ public class HomeController {
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("print.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 400, 180);
 
-            TableView table = new TableView();
-            table.setEditable(true);
-
-            TableColumn firstNameCol = new TableColumn("First Name");
-            TableColumn lastNameCol = new TableColumn("Last Name");
-            TableColumn emailCol = new TableColumn("Email");
-
-            table.getColumns().addAll(firstNameCol, lastNameCol, emailCol);
-
             VBox vbox = new VBox();
             vbox.setSpacing(5);
             vbox.setPadding(new Insets(10, 0, 0, 10));
-            vbox.getChildren().addAll(table);
-
-            ((Group) scene.getRoot()).getChildren().addAll(table);
 
             Stage renameStage = (Stage) renameButton.getScene().getWindow();
             renameStage.setTitle("Print");
