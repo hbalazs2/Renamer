@@ -12,12 +12,10 @@
     <Label fx:id="displayLabel" />
     <TextField fx:id="path" alignment="CENTER" />
 
-    <ButtonBar>
-        <buttons>
-            <Button fx:id="chooseDirButton" onAction="#onSelectDirClick" text="Select Directory" ButtonBar.buttonData="SMALL_GAP" />
-            <Button fx:id="printButton" onAction="#onPrintButtonClick" text="Print" ButtonBar.buttonData="SMALL_GAP" />
-            <Button fx:id="backButton" onAction="#onBackButtonClick" text="Back" ButtonBar.buttonData="SMALL_GAP" />
-            <Button fx:id="exitButton" onAction="#onExitButtonClick" text="Exit" ButtonBar.buttonData="CANCEL_CLOSE" />
-        </buttons>
-    </ButtonBar>
+    <FlowPane alignment="CENTER" hgap="20">
+        <Button fx:id="chooseDirButton" onAction="#onSelectDirClick" text="Select Directory" />
+        <Button fx:id="printButton" onAction="#onPrintButtonClick" text="Print" />
+        <Button fx:id="backButton" onAction="#onBackButtonClick" text="Back" />
+        <Button fx:id="exitButton" onAction="#onExitButtonClick" text="Exit" />
+    </FlowPane>
 </VBox>

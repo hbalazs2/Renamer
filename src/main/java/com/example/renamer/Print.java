@@ -18,7 +18,6 @@ public class Print {
         }
 
         try {
-
             Arrays.sort(filesToPrintArr);
             System.out.println("SORTED");
         } catch (Exception e) {
@@ -29,6 +28,7 @@ public class Print {
             if (file.isFile()) {
                 try {
                     desktop.print(file);
+                    System.out.println(file.getName() + " is printed");
                     counter++;
                 } catch (Exception e) {
                     e.printStackTrace();
