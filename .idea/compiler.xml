@@ -9,8 +9,5 @@
         <module name="Renamer" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="Renamer" target="17" />
-    </bytecodeTargetLevel>
   </component>
 </project>

@@ -36,12 +36,14 @@ public class Rename {
         for (File file : filesToRename) {
             String localExtension = file.getName().substring(file.getName().length() - 4);
 
-            if (file.isFile()) {
+            if (file.isFile() && !file.getName().equals("extract")) {
                 String longFileName = file.getName();
                 String[] fileNameParts = longFileName.split(oldDelimiter);
                 BigInteger num = new BigInteger(fileNameParts[0].toUpperCase(), 16);
                 String newFileName = num + localExtension;
-                file.renameTo(new File(getPath() + "\\" + newFileName));
+//                File f = new File(myFolder + "/" + newFileName);
+//                System.out.println(myFolder + "/" + f.getName());
+                file.renameTo(new File(myFolder + "/" + newFileName));
             }
         }
         return filesToRename;
